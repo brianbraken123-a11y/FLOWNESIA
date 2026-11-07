@@ -14,10 +14,11 @@ export const FLOWNESIA_CONFIG = {
       'FlowNesia Kas Basic membantu mencatat pemasukan dan pengeluaran melalui WhatsApp, merekap transaksi ke Google Sheets, dan memantau laporan keuangan usaha dengan lebih praktis.',
   },
 
-  // Verified WhatsApp Business Contact
+  // Verified WhatsApp Business & Phone Contact
   contact: {
-    whatsappNumber: '6282191897020',
-    whatsappDisplay: '0821-9189-7020',
+    whatsappNumber: '6281324997190',
+    whatsappDisplay: '0813-2499-7190',
+    phoneUrl: 'tel:+6281324997190',
   },
 
   pricing: {

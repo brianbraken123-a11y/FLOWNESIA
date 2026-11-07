@@ -20,7 +20,10 @@ Landing page premium, modern, dan conversion-focused untuk **FlowNesia Kas Basic
 ## 📞 Kontak WhatsApp Resmi
 
 Dikonfigurasi di `src/config/flownesia.ts`:
-- **Nomor WhatsApp:** `6282191897020` (`0821-9189-7020`)
+- **Nomor WhatsApp:** `6281324997190`
+- **Tampilan:** `0813-2499-7190`
+- **Tautan Telepon:** `tel:+6281324997190`
+- **Tautan WhatsApp:** `https://wa.me/6281324997190`
 - **Fungsi WhatsApp URL:** Semua tombol CTA di halaman menggunakan fungsi terpusat `getWhatsAppUrl()`.
 
 ---
