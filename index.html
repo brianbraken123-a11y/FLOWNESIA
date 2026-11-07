@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowNesia Kas Basic – Catat Keuangan Usaha Semudah Kirim Chat WhatsApp</title>
+    <meta
+      name="description"
+      content="FlowNesia Kas Basic membantu UMKM mencatat transaksi kas masuk & keluar via WhatsApp otomatis tersimpan di Google Sheets, lengkap dengan dashboard keuangan dan laporan laba rugi."
+    />
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpg" />
+
+    <!-- Open Graph / Meta Ads -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FlowNesia Kas Basic – Catat Keuangan Usaha Semudah Kirim Chat WhatsApp" />
+    <meta
+      property="og:description"
+      content="Sistem pencatatan keuangan praktis untuk pemilik usaha & UMKM. Catat via WhatsApp, rekap otomatis ke Google Sheets, pantau laporan kapan saja."
+    />
+    <meta property="og:image" content="/assets/logo.jpg" />
+    <meta property="og:site_name" content="FlowNesia" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FlowNesia Kas Basic – Catat Keuangan Usaha Semudah Kirim Chat WhatsApp" />
+    <meta
+      name="twitter:description"
+      content="Sistem pencatatan keuangan praktis untuk UMKM. Catat transaksi via WhatsApp, rekap otomatis ke Google Sheets, dan pantau dashboard keuangan."
+    />
+    <meta name="twitter:image" content="/assets/logo.jpg" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Optional Meta Pixel Code Placeholder for Ads Tracking -->
+    <script>
+      /* FlowNesia Meta Pixel Tracker Setup */
+      window._metaPixelId = 'YOUR_PIXEL_ID'; // Ganti dengan Pixel ID Meta Anda jika beriklan di FB / IG Ads
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      if (window._metaPixelId && window._metaPixelId !== 'YOUR_PIXEL_ID') {
+        fbq('init', window._metaPixelId);
+        fbq('track', 'PageView');
+      }
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FlowNesia Kas Basic",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Sistem pencatatan keuangan usaha via WhatsApp yang terintegrasi langsung dengan AI dan Google Sheets untuk UMKM.",
+        "offers": {
+          "@type": "Offer",
+          "price": "750000",
+          "priceCurrency": "IDR",
+          "description": "Pembelian sistem dan setup sekali bayar. Biaya operasional server Rp30.000/bln dan token AI terpisah sesuai pemakaian."
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "FlowNesia"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#FFF9EB] text-[#182820] font-sans antialiased selection:bg-[#D9AE52]/30 selection:text-[#063B2D]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

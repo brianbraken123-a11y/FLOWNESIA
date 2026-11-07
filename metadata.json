@@ -1,0 +1,6 @@
+{
+  "name": "FlowNesia Kas Basic",
+  "description": "Sistem pencatatan keuangan usaha praktis via WhatsApp terintegrasi Google Sheets dan dashboard keuangan untuk UMKM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
