@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, ZoomIn, FileSpreadsheet, MessageCircle, BarChart3, TrendingUp, Sparkles, AlertTriangle } from 'lucide-react';
+import { Eye, ZoomIn, FileSpreadsheet, MessageCircle, BarChart3, TrendingUp, Sparkles } from 'lucide-react';
 import { FLOWNESIA_CONFIG } from '../config/flownesia';
 
 interface ProductShowcaseProps {
@@ -158,18 +158,10 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
           ))}
         </div>
 
-        {/* Audit Transparency Note on Discrepancy */}
-        <div className="mt-12 rounded-2xl border border-[#063B2D]/15 bg-[#FFF9EB] p-5 max-w-3xl mx-auto text-xs text-[#182820]/80 leading-relaxed shadow-xs">
-          <div className="flex items-start gap-2.5">
-            <AlertTriangle className="h-4 w-4 text-[#087F5B] shrink-0 mt-0.5" />
-            <div>
-              <strong className="text-[#063B2D] font-bold">Transparansi Data Screenshot:</strong>
-              <p className="mt-1">
-                Tangkapan layar dashboard dan laporan laba rugi di atas merupakan contoh antarmuka dari pengujian terpisah (keduanya berlabel Oktober 2026 dengan perbedaan angka laba/rugi: Rp36.444 pada dashboard dan Rp116.444 pada lembar laba rugi). Kami tidak mengubah atau memanipulasi angka pada aset asli. Pemilik sistem disarankan menyediakan screenshot pengganti yang tersinkronisasi pada periode pengujian yang sama.
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* Screenshot context */}
+        <p className="mt-12 max-w-3xl mx-auto text-center text-xs text-[#182820]/80 leading-relaxed">
+          Contoh tampilan FlowNesia Kas Basic. Data pada akun Anda mengikuti transaksi yang dicatat.
+        </p>
 
       </div>
     </section>
