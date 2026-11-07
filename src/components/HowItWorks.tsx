@@ -14,11 +14,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
       title: 'Kirim Transaksi Melalui WhatsApp',
       desc: 'Cukup ketik pesan singkat di chat WhatsApp bot kas usaha Anda. Misalnya saat baru belanja stok: "Beli bahan 150.000".',
       icon: <Send className="h-5 w-5 text-white" />,
-      image: FLOWNESIA_CONFIG.assets.waTransaction,
-      previewLabel: 'Tangkapan Layar Chat WhatsApp',
-      caption: 'Pesan asli pengguna mengetik "Beli bahan 150.000" dan langsung dijawab oleh bot kas.',
+      image: FLOWNESIA_CONFIG.assets.waStep1Input,
+      previewLabel: 'Pesan Input Pengguna',
+      caption: 'Tangkapan layar asli pesan input pengguna: "Beli bahan 150.000" dikirimkan via WhatsApp.',
       imgWidth: 720,
-      imgHeight: 1056,
+      imgHeight: 170,
     },
     {
       step: 2,
@@ -26,11 +26,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
       title: 'AI Membantu Memproses Informasi Transaksi',
       desc: 'AI membedah kalimat transaksi, mendeteksi tanggal, jenis (Keluar), kategori (Belanja), dan nominal (Rp150.000).',
       icon: <Bot className="h-5 w-5 text-white" />,
-      image: FLOWNESIA_CONFIG.assets.waTransaction,
-      previewLabel: 'Ekstraksi AI Akurat',
-      caption: 'Respon otomatis: AI mengekstrak nominal, kategori, jenis transaksi, dan link Google Sheets.',
+      image: FLOWNESIA_CONFIG.assets.waStep2Ai,
+      previewLabel: 'Hasil Ekstraksi AI & Balasan Bot',
+      caption: 'Tangkapan layar balasan bot: Transaksi berhasil disimpan dengan rincian tanggal, jenis, kategori, nominal, dan keterangan.',
       imgWidth: 720,
-      imgHeight: 1056,
+      imgHeight: 310,
     },
     {
       step: 3,
@@ -117,7 +117,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
                 <button
                   type="button"
                   onClick={() => onOpenImageModal(item.image, item.title, item.caption)}
-                  className="group/img relative w-full text-left overflow-hidden rounded-xl border border-white/15 bg-black/40 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B]"
+                  className="group/img relative w-full h-36 flex items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-black/40 p-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B]"
                   aria-label={`Perbesar screenshot langkah ${item.num}: ${item.title}`}
                 >
                   <img
@@ -125,7 +125,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
                     alt={item.title}
                     width={item.imgWidth}
                     height={item.imgHeight}
-                    className="h-36 w-full object-cover transition-transform duration-300 group-hover/img:scale-105 opacity-90 group-hover/img:opacity-100"
+                    className="max-h-full max-w-full object-contain rounded-lg transition-transform duration-300 group-hover/img:scale-105 opacity-95 group-hover/img:opacity-100"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />

@@ -60,6 +60,8 @@ export const FLOWNESIA_CONFIG = {
   assets: {
     logo: '/assets/logo.jpg',
     waTransaction: '/assets/wa-transaction.jpg',
+    waStep1Input: '/assets/wa-step1-input.jpg',
+    waStep2Ai: '/assets/wa-step2-ai.jpg',
     googleSheets: '/assets/google-sheets.jpg',
     dashboard: '/assets/dashboard.jpg',
     labaRugi: '/assets/laba-rugi.jpg',
@@ -119,8 +121,8 @@ export const FLOWNESIA_CONFIG = {
       title: 'Kirim Transaksi Melalui WhatsApp',
       description:
         'Ketik pesan pemasukan atau pengeluaran ke chat WhatsApp bot kas usaha Anda (contoh: "Beli bahan 150.000").',
-      image: '/assets/wa-transaction.jpg',
-      caption: 'Tangkapan layar WhatsApp: pengguna mengirim "Beli bahan 150.000" dan bot memberikan rincian transaksi.',
+      image: '/assets/wa-step1-input.jpg',
+      caption: 'Tangkapan layar asli pesan input pengguna: "Beli bahan 150.000" dikirimkan via WhatsApp.',
     },
     {
       step: 2,
@@ -128,8 +130,8 @@ export const FLOWNESIA_CONFIG = {
       title: 'AI Membantu Memproses Informasi Transaksi',
       description:
         'AI membaca pesan dan menguraikan tanggal, nominal (Rp150.000), jenis (Keluar), serta kategori (Belanja).',
-      image: '/assets/wa-transaction.jpg',
-      caption: 'Respon otomatis: AI mengekstrak nominal, kategori, jenis transaksi, dan link Google Sheets.',
+      image: '/assets/wa-step2-ai.jpg',
+      caption: 'Tangkapan layar balasan bot: Transaksi berhasil disimpan dengan rincian tanggal, jenis, kategori, nominal, dan keterangan.',
     },
     {
       step: 3,
