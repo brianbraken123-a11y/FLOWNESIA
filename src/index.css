@@ -15,13 +15,18 @@
   --color-flownesia-dark: #182820;
 }
 
-/* Custom subtle keyframe animations for floating & breathing effects */
+/* Scroll margin for anchor sections so sticky top navigation does not obscure headers */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Custom subtle animations */
 @keyframes floatGentle {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
 }
 
@@ -32,7 +37,18 @@
   }
   50% {
     transform: scale(1.03);
-    box-shadow: 0 16px 32px -5px rgba(217, 174, 82, 0.45);
+    box-shadow: 0 16px 32px -5px rgba(6, 59, 45, 0.45);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -44,13 +60,22 @@
   animation: breatheGentle 3s ease-in-out infinite;
 }
 
-/* Respect prefers-reduced-motion */
+.modal-fade-in {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+/* Strict prefers-reduced-motion support */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  .animate-float-gentle,
+  .animate-breathe-gentle,
+  .modal-fade-in {
+    animation: none !important;
   }
 }
 
@@ -64,4 +89,5 @@ body {
   overflow-x: hidden;
   background-color: #FFF9EB;
   color: #182820;
+  min-height: 100%;
 }

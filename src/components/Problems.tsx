@@ -5,9 +5,9 @@ import { FLOWNESIA_CONFIG } from '../config/flownesia';
 export const Problems: React.FC = () => {
   const problemIcons = [
     <Clock className="h-6 w-6 text-[#087F5B]" key="clock" />,
-    <Layers className="h-6 w-6 text-[#D9AE52]" key="layers" />,
+    <Layers className="h-6 w-6 text-[#063B2D]" key="layers" />,
     <FileSpreadsheet className="h-6 w-6 text-[#087F5B]" key="sheets" />,
-    <TrendingDown className="h-6 w-6 text-[#D9AE52]" key="trending" />,
+    <TrendingDown className="h-6 w-6 text-[#063B2D]" key="trending" />,
   ];
 
   return (
@@ -16,8 +16,8 @@ export const Problems: React.FC = () => {
         
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#087F5B] mb-3">
-            <AlertCircle className="h-4 w-4 text-[#D9AE52]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-[#087F5B] mb-3">
+            <AlertCircle className="h-4 w-4 text-[#087F5B]" />
             <span>Tantangan Pembukuan UMKM</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-[#063B2D] sm:text-4xl text-balance">
@@ -33,10 +33,10 @@ export const Problems: React.FC = () => {
           {FLOWNESIA_CONFIG.problems.map((problem, index) => (
             <div
               key={problem.id}
-              className="group relative flex flex-col justify-between rounded-2xl border border-[#063B2D]/10 bg-[#FFF9EB]/60 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#D9AE52]/60 hover:bg-[#FFF9EB] hover:shadow-md"
+              className="group relative flex flex-col justify-between rounded-2xl border border-[#063B2D]/10 bg-[#FFF9EB]/60 p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#087F5B] hover:bg-[#FFF9EB] hover:shadow-md"
             >
               <div>
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#063B2D]/10 shadow-xs transition-colors group-hover:border-[#D9AE52]/40">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#063B2D]/10 shadow-xs transition-colors group-hover:border-[#087F5B]/40">
                   {problemIcons[index]}
                 </div>
                 
@@ -49,10 +49,10 @@ export const Problems: React.FC = () => {
                 </p>
               </div>
 
-              {/* Subtle foot detail */}
-              <div className="mt-6 pt-4 border-t border-[#063B2D]/5 flex items-center justify-between text-xs font-medium text-[#182820]/60">
-                <span className="font-mono text-[#D9AE52] font-semibold">0{problem.id}</span>
-                <span className="text-red-700/80 font-medium">Masalah Nyata</span>
+              {/* High contrast foot detail */}
+              <div className="mt-6 pt-4 border-t border-[#063B2D]/10 flex items-center justify-between text-xs font-semibold text-[#182820]/70">
+                <span className="font-mono text-[#063B2D] font-bold">0{problem.id}</span>
+                <span className="text-[#087F5B] font-bold">Tantangan Nyata</span>
               </div>
             </div>
           ))}
@@ -60,7 +60,7 @@ export const Problems: React.FC = () => {
 
         {/* Transition Bridge */}
         <div className="mt-12 text-center">
-          <p className="text-sm font-medium text-[#182820]/70">
+          <p className="text-sm font-medium text-[#182820]/75">
             Kabar baiknya: Anda tidak perlu belajar akuntansi rumit atau membeli aplikasi langganan mahal untuk menyelesaikannya.
           </p>
         </div>

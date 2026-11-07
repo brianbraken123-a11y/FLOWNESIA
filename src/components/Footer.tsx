@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, Mail, Clock, ArrowUp, Shield } from 'lucide-react';
-import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaLead } from '../config/flownesia';
+import { MessageCircle, ArrowUp, Shield } from 'lucide-react';
+import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaContact } from '../config/flownesia';
 
 interface FooterProps {
   onOpenPrivacyModal: () => void;
@@ -9,16 +9,19 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsModal }) => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
   };
 
   const handleWaContact = () => {
-    trackMetaLead('Footer WhatsApp Contact');
+    trackMetaContact('Footer WhatsApp Contact');
     window.open(getWhatsAppUrl(), '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <footer className="relative bg-[#04241B] text-white/80 border-t border-white/10 pb-24 sm:pb-12 pt-16">
+    <footer className="relative bg-[#04241B] text-white/80 border-t border-white/10 pb-32 sm:pb-14 pt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
@@ -28,29 +31,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <img
                 src={FLOWNESIA_CONFIG.assets.logo}
                 alt="FlowNesia Logo"
-                className="h-10 w-10 rounded-full border border-[#D9AE52]/50 object-cover"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full border border-[#087F5B]/50 object-cover"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <span className="text-xl font-extrabold tracking-tight text-white">
                 Flow<span className="text-[#087F5B]">Nesia</span>
-                <span className="ml-1 text-xs font-semibold text-[#D9AE52]">Kas Basic</span>
+                <span className="ml-1 text-xs font-semibold text-white/80">Kas Basic</span>
               </span>
             </div>
 
             <p className="mt-4 text-sm leading-relaxed text-white/70 max-w-sm">
-              Solusi sistem pencatatan keuangan praktis untuk pengusaha UMKM Indonesia. Memudahkan rekap kas via WhatsApp, otomasi n8n, dan Google Sheets.
+              Sistem pencatatan keuangan praktis berbasis WhatsApp, otomasi server n8n, dan Google Sheets untuk usaha UMKM Indonesia.
             </p>
 
-            <div className="mt-6 flex items-center gap-2 text-xs text-[#D9AE52]">
-              <Shield className="h-4 w-4" />
-              <span>Sistem Setup Mandiri & SOP Pengujian Terstandar</span>
+            <div className="mt-6 flex items-center gap-2 text-xs text-white/80">
+              <Shield className="h-4 w-4 text-[#087F5B]" />
+              <span>SOP Setup & Pengujian Sistem Terstandar</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-[#D9AE52] mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#087F5B] mb-4">
               Navigasi Halaman
             </h4>
             <ul className="space-y-2.5 text-sm text-white/70">
@@ -71,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               </li>
               <li>
                 <a href="#showcase" className="hover:text-white transition-colors">
-                  Showcase Screenshot Asli
+                  Showcase Screenshot
                 </a>
               </li>
               <li>
@@ -89,43 +94,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
 
           {/* Contact Details */}
           <div className="lg:col-span-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-[#D9AE52] mb-4">
-              Kontak & Bantuan
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#087F5B] mb-4">
+              Kontak Resmi
             </h4>
-            <div className="space-y-3 text-sm text-white/70">
+            <div className="space-y-3 text-sm text-white/80">
               <button
                 type="button"
                 onClick={handleWaContact}
-                className="flex items-center gap-2.5 hover:text-[#D9AE52] transition-colors text-left"
+                className="flex items-center gap-2.5 hover:text-white transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] rounded p-1 -ml-1 cursor-pointer"
               >
                 <MessageCircle className="h-4 w-4 text-[#087F5B] shrink-0" />
                 <span>WhatsApp: {FLOWNESIA_CONFIG.contact.whatsappDisplay}</span>
               </button>
-
-              <div className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>Email: {FLOWNESIA_CONFIG.contact.email}</span>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <Clock className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>{FLOWNESIA_CONFIG.contact.operationalHours}</span>
-              </div>
             </div>
 
             <div className="mt-6 flex items-center gap-4 text-xs text-white/60">
               <button
                 type="button"
                 onClick={onOpenPrivacyModal}
-                className="hover:underline hover:text-white cursor-pointer"
+                className="hover:underline hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded"
               >
-                Kebijakan Privasi
+                Informasi Privasi
               </button>
               <span>·</span>
               <button
                 type="button"
                 onClick={onOpenTermsModal}
-                className="hover:underline hover:text-white cursor-pointer"
+                className="hover:underline hover:text-white cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded"
               >
                 Ketentuan Layanan
               </button>
@@ -140,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-white transition-colors focus-visible:outline-none"
+            className="flex items-center gap-1.5 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded p-1 cursor-pointer"
           >
             <span>Kembali ke atas</span>
             <ArrowUp className="h-3.5 w-3.5" />

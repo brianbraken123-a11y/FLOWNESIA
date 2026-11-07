@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, ZoomIn, FileSpreadsheet, MessageCircle, BarChart3, TrendingUp, Sparkles } from 'lucide-react';
+import { Eye, ZoomIn, FileSpreadsheet, MessageCircle, BarChart3, TrendingUp, Sparkles, AlertTriangle } from 'lucide-react';
 import { FLOWNESIA_CONFIG } from '../config/flownesia';
 
 interface ProductShowcaseProps {
@@ -14,13 +14,13 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
       tag: 'Tangkapan Layar WhatsApp',
       icon: <MessageCircle className="h-5 w-5 text-[#087F5B]" />,
       description:
-        'Respon bot WhatsApp saat mencatat pengeluaran harian. Terlihat format tanggal 2026-10-27, Jenis: Keluar, Kategori: Belanja, Nominal: Rp150.000, Keterangan: Beli bahan, beserta link Google Sheets.',
+        'Respon bot WhatsApp saat mencatat pengeluaran. Menampilkan tanggal, jenis transaksi, kategori belanja, nominal Rp150.000, serta tautan menuju Google Sheets.',
       image: FLOWNESIA_CONFIG.assets.waTransaction,
-      badge: 'Input Transaksi Cepat',
+      badge: 'Input Transaksi WhatsApp',
       colSpan: 'lg:col-span-5',
-      imageMaxHeight: 'max-h-[500px]',
-      aspectRatio: 'object-contain',
-      bgTone: 'bg-[#063B2D]/5',
+      imageMaxHeight: 'max-h-[460px]',
+      width: 720,
+      height: 1056,
     },
     {
       id: 'google-sheets',
@@ -30,39 +30,39 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
       description:
         'Tabel spreadsheet yang otomatis terupdate. Memuat kolom ID, Tanggal, Kategori, Masuk, Keluar, Saldo Kas berjalan, Keterangan, Status (Berhasil), Created At, dan Created By.',
       image: FLOWNESIA_CONFIG.assets.googleSheets,
-      badge: 'Rekap Terpusat Realtime',
+      badge: 'Database Kas Google Sheets',
       colSpan: 'lg:col-span-7',
       imageMaxHeight: 'max-h-[380px]',
-      aspectRatio: 'object-contain',
-      bgTone: 'bg-[#063B2D]/5',
+      width: 1027,
+      height: 207,
     },
     {
       id: 'dashboard',
       title: 'Dashboard Keuangan Visual',
       tag: 'Tangkapan Layar Dashboard',
-      icon: <BarChart3 className="h-5 w-5 text-[#D9AE52]" />,
+      icon: <BarChart3 className="h-5 w-5 text-[#087F5B]" />,
       description:
-        'Visualisasi lengkap keuangan usaha: Total Pemasukan, Total Beban, Laba/Rugi, Saldo Kas, grafik batang Pendapatan vs Beban per Bulan, serta diagram lingkaran Komposisi Beban per Kategori.',
+        'Visualisasi lembar dashboard keuangan contoh: Total Pemasukan, Total Beban, Laba/Rugi, Saldo Kas, grafik per bulan, dan komposisi beban per kategori.',
       image: FLOWNESIA_CONFIG.assets.dashboard,
-      badge: 'Visualisasi Keuangan',
+      badge: 'Dashboard Visual',
       colSpan: 'lg:col-span-7',
       imageMaxHeight: 'max-h-[460px]',
-      aspectRatio: 'object-contain',
-      bgTone: 'bg-[#063B2D]/5',
+      width: 616,
+      height: 505,
     },
     {
       id: 'laba-rugi',
-      title: 'Laporan Laba Rugi Otomatis',
+      title: 'Laporan Laba Rugi',
       tag: 'Tangkapan Layar Laporan Laba Rugi',
       icon: <TrendingUp className="h-5 w-5 text-[#087F5B]" />,
       description:
-        'Tabel perhitungan laba rugi bersih bulanan. Mengelompokkan pos Pendapatan (Gaji, Bonus, Penjualan) dan Beban (Belanja, Makanan, Transportasi, Listrik, dsb) secara otomatis.',
+        'Contoh lembar laporan laba rugi dengan rincian pos pendapatan dan kelompok beban hingga baris laba/rugi bersih periode berjalan.',
       image: FLOWNESIA_CONFIG.assets.labaRugi,
-      badge: 'Perhitungan Laba Bersih',
+      badge: 'Laporan Laba Rugi',
       colSpan: 'lg:col-span-5',
-      imageMaxHeight: 'max-h-[500px]',
-      aspectRatio: 'object-contain',
-      bgTone: 'bg-[#063B2D]/5',
+      imageMaxHeight: 'max-h-[460px]',
+      width: 295,
+      height: 460,
     },
   ];
 
@@ -72,15 +72,15 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
         
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#087F5B] mb-3">
-            <Sparkles className="h-4 w-4 text-[#D9AE52]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-[#087F5B] mb-3">
+            <Sparkles className="h-4 w-4 text-[#087F5B]" />
             <span>Tampilan Nyata Produk</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-[#063B2D] sm:text-4xl lg:text-5xl text-balance">
             Lihat FlowNesia Bekerja
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#182820]/80">
-            Berikut adalah tangkapan layar antarmuka asli FlowNesia Kas Basic. Tidak ada simulasi palsu — klik pada kartu untuk memperbesar dan membaca rinciannya.
+            Berikut adalah tangkapan layar antarmuka asli FlowNesia Kas Basic. Klik pada kartu atau tombol perbesar untuk melihat rincian beresolusi penuh.
           </p>
         </div>
 
@@ -89,19 +89,19 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
           {showcaseItems.map((item) => (
             <div
               key={item.id}
-              className={`${item.colSpan} group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#063B2D]/15 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#D9AE52] hover:shadow-xl`}
+              className={`${item.colSpan} group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#063B2D]/15 bg-white p-6 shadow-xs transition-all duration-300 hover:border-[#087F5B] hover:shadow-lg`}
             >
               {/* Card Meta & Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[#063B2D]/10">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FFF9EB] border border-[#D9AE52]/40">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FFF9EB] border border-[#087F5B]/30">
                     {item.icon}
                   </div>
-                  <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#087F5B]">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#087F5B] block truncate">
                       {item.tag}
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-[#063B2D]">
+                    <h3 className="text-base sm:text-lg font-bold text-[#063B2D] truncate">
                       {item.title}
                     </h3>
                   </div>
@@ -110,53 +110,65 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onOpenImageMod
                 <button
                   type="button"
                   onClick={() => onOpenImageModal(item.image, item.title, item.description)}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#063B2D]/15 bg-[#FFF9EB] px-3 py-1.5 text-xs font-medium text-[#063B2D] transition-colors hover:bg-[#063B2D] hover:text-white cursor-pointer"
-                  title="Klik untuk memperbesar gambar"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#063B2D]/15 bg-[#FFF9EB] px-3 py-1.5 text-xs font-bold text-[#063B2D] transition-colors hover:bg-[#063B2D] hover:text-white shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] cursor-pointer"
+                  title={`Perbesar ${item.title}`}
                 >
-                  <ZoomIn className="h-3.5 w-3.5 text-[#D9AE52]" />
+                  <ZoomIn className="h-3.5 w-3.5 text-[#087F5B]" />
                   <span className="hidden sm:inline">Perbesar</span>
                 </button>
               </div>
 
-              {/* Clickable Image Container */}
-              <div
+              {/* Clickable Image Button Container */}
+              <button
+                type="button"
                 onClick={() => onOpenImageModal(item.image, item.title, item.description)}
-                className={`my-5 relative overflow-hidden rounded-2xl border border-[#063B2D]/10 bg-slate-50 flex items-center justify-center p-2 cursor-pointer transition-transform duration-300 group-hover:scale-[1.01]`}
+                className="my-5 relative w-full text-left overflow-hidden rounded-2xl border border-[#063B2D]/10 bg-slate-50 flex items-center justify-center p-2 cursor-pointer transition-transform duration-300 group-hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B]"
+                aria-label={`Perbesar gambar ${item.title}`}
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={`w-full ${item.imageMaxHeight} ${item.aspectRatio} rounded-xl shadow-xs`}
+                  width={item.width}
+                  height={item.height}
+                  className={`w-full ${item.imageMaxHeight} object-contain rounded-xl`}
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 
                 {/* Hover overlay hint */}
-                <div className="absolute inset-0 flex items-center justify-center bg-[#063B2D]/40 opacity-0 transition-opacity duration-200 group-hover:opacity-100 backdrop-blur-[1px]">
-                  <span className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-xs font-bold text-[#063B2D] shadow-xl border border-[#D9AE52]">
+                <div className="absolute inset-0 flex items-center justify-center bg-[#063B2D]/40 opacity-0 transition-opacity duration-200 group-hover:opacity-100 backdrop-blur-xs">
+                  <span className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-xs font-bold text-[#063B2D] shadow-lg border border-[#087F5B]">
                     <Eye className="h-4 w-4 text-[#087F5B]" />
                     Klik untuk Memperbesar Gambar
                   </span>
                 </div>
-              </div>
+              </button>
 
               {/* Caption & Description */}
               <div className="pt-2">
                 <p className="text-sm leading-relaxed text-[#182820]/80">
                   {item.description}
                 </p>
-                <div className="mt-4 flex items-center justify-between text-xs text-[#087F5B] font-semibold">
+                <div className="mt-4 flex items-center justify-between text-xs text-[#087F5B] font-bold">
                   <span>{item.badge}</span>
-                  <span className="text-[#182820]/50 font-normal">Resolusi Asli</span>
+                  <span className="text-[#182820]/60 font-semibold">Resolusi Asli</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Note on data integrity */}
-        <div className="mt-12 text-center text-xs text-[#182820]/60 max-w-xl mx-auto">
-          Catatan: Seluruh angka di atas adalah tangkapan layar penggunaan asli FlowNesia Kas Basic. Data keuangan Anda nantinya akan sepenuhnya terisi sesuai transaksi nyata usaha Anda.
+        {/* Audit Transparency Note on Discrepancy */}
+        <div className="mt-12 rounded-2xl border border-[#063B2D]/15 bg-[#FFF9EB] p-5 max-w-3xl mx-auto text-xs text-[#182820]/80 leading-relaxed shadow-xs">
+          <div className="flex items-start gap-2.5">
+            <AlertTriangle className="h-4 w-4 text-[#087F5B] shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-[#063B2D] font-bold">Transparansi Data Screenshot:</strong>
+              <p className="mt-1">
+                Tangkapan layar dashboard dan laporan laba rugi di atas merupakan contoh antarmuka dari pengujian terpisah (keduanya berlabel Oktober 2026 dengan perbedaan angka laba/rugi: Rp36.444 pada dashboard dan Rp116.444 pada lembar laba rugi). Kami tidak mengubah atau memanipulasi angka pada aset asli. Pemilik sistem disarankan menyediakan screenshot pengganti yang tersinkronisasi pada periode pengujian yang sama.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>

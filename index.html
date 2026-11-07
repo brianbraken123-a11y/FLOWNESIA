@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>FlowNesia Kas Basic – Catat Keuangan Usaha Semudah Kirim Chat WhatsApp</title>
     <meta
       name="description"
@@ -11,6 +11,7 @@
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpg" />
 
     <!-- Open Graph / Meta Ads -->
+    <!-- Catatan SEO: og:image dan twitter:image sebaiknya menggunakan URL absolut setelah domain produksi Cloudflare Pages ditentukan -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FlowNesia Kas Basic – Catat Keuangan Usaha Semudah Kirim Chat WhatsApp" />
     <meta
@@ -37,27 +38,26 @@
       rel="stylesheet"
     />
 
-    <!-- Optional Meta Pixel Code Placeholder for Ads Tracking -->
+    <!-- Optional Meta Pixel Code (Hanya diunduh jika Pixel ID telah dikonfigurasi valid) -->
     <script>
-      /* FlowNesia Meta Pixel Tracker Setup */
-      window._metaPixelId = 'YOUR_PIXEL_ID'; // Ganti dengan Pixel ID Meta Anda jika beriklan di FB / IG Ads
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-      if (window._metaPixelId && window._metaPixelId !== 'YOUR_PIXEL_ID') {
+      window._metaPixelId = ''; // Isi dengan Pixel ID Meta Anda jika aktif beriklan
+      if (window._metaPixelId && window._metaPixelId !== 'YOUR_PIXEL_ID' && window._metaPixelId.trim() !== '') {
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = '2.0';
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', window._metaPixelId);
         fbq('track', 'PageView');
       }
@@ -71,12 +71,12 @@
         "name": "FlowNesia Kas Basic",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
-        "description": "Sistem pencatatan keuangan usaha via WhatsApp yang terintegrasi langsung dengan AI dan Google Sheets untuk UMKM.",
+        "description": "Sistem pencatatan keuangan usaha via WhatsApp yang terintegrasi dengan Google Sheets untuk UMKM.",
         "offers": {
           "@type": "Offer",
           "price": "750000",
           "priceCurrency": "IDR",
-          "description": "Pembelian sistem dan setup sekali bayar. Biaya operasional server Rp30.000/bln dan token AI terpisah sesuai pemakaian."
+          "description": "Pembelian sistem dan setup Rp750.000 sekali bayar. Biaya operasional server Rp30.000/bln dan token AI terpisah sesuai pemakaian."
         },
         "brand": {
           "@type": "Brand",

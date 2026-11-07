@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Bot, TableProperties, LineChart, ZoomIn, ArrowRight } from 'lucide-react';
+import { Send, Bot, TableProperties, LineChart, ZoomIn } from 'lucide-react';
 import { FLOWNESIA_CONFIG } from '../config/flownesia';
 
 interface HowItWorksProps {
@@ -12,41 +12,49 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
       step: 1,
       num: '01',
       title: 'Kirim Transaksi Melalui WhatsApp',
-      desc: 'Cukup ketik pesan singkat di WhatsApp bot kas usaha Anda. Misalnya saat baru belanja stok: "Beli bahan 150.000".',
+      desc: 'Cukup ketik pesan singkat di chat WhatsApp bot kas usaha Anda. Misalnya saat baru belanja stok: "Beli bahan 150.000".',
       icon: <Send className="h-5 w-5 text-white" />,
       image: FLOWNESIA_CONFIG.assets.waTransaction,
-      previewLabel: 'Screenshot Chat WhatsApp Asli',
-      caption: 'Pesan asli pengguna mengetik "Beli bahan 150.000" dan langsung dijawab oleh sistem bot kas.',
+      previewLabel: 'Tangkapan Layar Chat WhatsApp',
+      caption: 'Pesan asli pengguna mengetik "Beli bahan 150.000" dan langsung dijawab oleh bot kas.',
+      imgWidth: 720,
+      imgHeight: 1056,
     },
     {
       step: 2,
       num: '02',
       title: 'AI Membantu Memproses Informasi Transaksi',
-      desc: 'Model AI membedah kalimat transaksi, mendeteksi tanggal (2026-10-27), jenis (Keluar), kategori (Belanja), dan nominal (Rp150.000).',
+      desc: 'AI membedah kalimat transaksi, mendeteksi tanggal, jenis (Keluar), kategori (Belanja), dan nominal (Rp150.000).',
       icon: <Bot className="h-5 w-5 text-white" />,
       image: FLOWNESIA_CONFIG.assets.waTransaction,
       previewLabel: 'Ekstraksi AI Akurat',
-      caption: 'Respon otomatis FlowNesia: Transaksi berhasil disimpan dengan rincian lengkap pos beban.',
+      caption: 'Respon otomatis: AI mengekstrak nominal, kategori, jenis transaksi, dan link Google Sheets.',
+      imgWidth: 720,
+      imgHeight: 1056,
     },
     {
       step: 3,
       num: '03',
       title: 'Data Direkap ke Google Sheets',
-      desc: 'Otomatis tersimpan sebagai baris baru di spreadsheet kas dengan ID unik, tanggal, nominal keluar, saldo kas terhitung, dan status berhasil.',
+      desc: 'Otomatis tersimpan sebagai baris baru di spreadsheet kas dengan ID unik, tanggal, pos beban, dan saldo kas terupdate.',
       icon: <TableProperties className="h-5 w-5 text-white" />,
       image: FLOWNESIA_CONFIG.assets.googleSheets,
-      previewLabel: 'Database Google Sheets Asli',
+      previewLabel: 'Database Google Sheets',
       caption: 'Baris data Google Sheets riil: ID transaksi, Tanggal, Kategori Belanja, Keluar Rp150.000, Saldo Kas Rp249.432.',
+      imgWidth: 1027,
+      imgHeight: 207,
     },
     {
       step: 4,
       num: '04',
       title: 'Pantau Dashboard dan Laporan',
-      desc: 'Buka dashboard visual dan lembar laba rugi kapan saja untuk melihat total pemasukan, total beban, dan laba bersih usaha Anda.',
+      desc: 'Buka dashboard visual dan lembar laba rugi di Google Sheets kapan saja untuk melihat ringkasan keuangan usaha Anda.',
       icon: <LineChart className="h-5 w-5 text-white" />,
       image: FLOWNESIA_CONFIG.assets.dashboard,
       previewLabel: 'Dashboard Visual Terkoneksi',
-      caption: 'Dashboard keuangan bulanan: grafik pendapatan vs beban, komposisi beban per kategori, dan saldo kas.',
+      caption: 'Tangkapan layar dashboard keuangan bulanan: grafik pendapatan vs beban, komposisi beban per kategori, dan saldo kas.',
+      imgWidth: 616,
+      imgHeight: 505,
     },
   ];
 
@@ -66,31 +74,31 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
         
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#D9AE52] mb-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D9AE52] mb-3">
             <span>Alur Kerja Otomatis</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white text-balance">
             Cara Kerja FlowNesia Kas Basic
           </h2>
           <p className="mt-4 text-base sm:text-lg text-white/80">
-            Empat langkah sederhana dari ketikan jempol di WhatsApp hingga tersaji rapi di laporan keuangan usaha Anda.
+            Empat langkah sederhana dari pesan chat di WhatsApp hingga tersaji rapi di laporan Google Sheets usaha Anda.
           </p>
         </div>
 
         {/* Desktop Connected Timeline / Mobile Vertical Flow */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stepsData.map((item, index) => (
+          {stepsData.map((item) => (
             <div
               key={item.step}
-              className="group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-all duration-300 hover:border-[#D9AE52]/60 hover:bg-white/10 hover:shadow-xl"
+              className="group relative flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xs transition-all duration-300 hover:border-[#D9AE52]/60 hover:bg-white/10 hover:shadow-xl"
             >
               {/* Step indicator */}
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#087F5B] shadow-md border border-white/20">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#087F5B] shadow-xs border border-white/20">
                     {item.icon}
                   </div>
-                  <span className="font-mono text-2xl font-black text-[#D9AE52]/80">
+                  <span className="font-mono text-2xl font-black text-[#D9AE52]">
                     {item.num}
                   </span>
                 </div>
@@ -104,16 +112,19 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
                 </p>
               </div>
 
-              {/* Real Screenshot Preview Card */}
+              {/* Semantic Button for Image Zoom */}
               <div className="mt-6 pt-4 border-t border-white/10">
-                <div
+                <button
+                  type="button"
                   onClick={() => onOpenImageModal(item.image, item.title, item.caption)}
-                  className="group/img relative overflow-hidden rounded-xl border border-white/15 bg-black/40 cursor-pointer"
-                  title="Klik untuk melihat screenshot beresolusi penuh"
+                  className="group/img relative w-full text-left overflow-hidden rounded-xl border border-white/15 bg-black/40 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B]"
+                  aria-label={`Perbesar screenshot langkah ${item.num}: ${item.title}`}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
+                    width={item.imgWidth}
+                    height={item.imgHeight}
                     className="h-36 w-full object-cover transition-transform duration-300 group-hover/img:scale-105 opacity-90 group-hover/img:opacity-100"
                     loading="lazy"
                     referrerPolicy="no-referrer"
@@ -124,8 +135,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
                       Lihat Screenshot
                     </span>
                   </div>
-                </div>
-                <p className="mt-2 text-[11px] text-[#D9AE52]/80 font-medium truncate">
+                </button>
+                <p className="mt-2 text-[11px] text-[#D9AE52] font-semibold truncate">
                   {item.previewLabel}
                 </p>
               </div>
@@ -135,8 +146,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenImageModal }) => {
 
         {/* Operational Note */}
         <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/90">
-            Seluruh proses berjalan otomatis di server awan (cloud server n8n) tanpa perlu menyalakan komputer Anda secara terus menerus. Anda bisa mencatat kapan saja, di mana saja.
+          <p className="text-sm text-white/85 leading-relaxed">
+            Alur otomasi berjalan di server cloud n8n tanpa mengharuskan komputer Anda menyala terus menerus.
           </p>
         </div>
 

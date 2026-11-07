@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
-import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaLead } from '../config/flownesia';
+import { MessageCircle, ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaContact } from '../config/flownesia';
 
 interface HeroProps {
   onOpenImageModal: (imageSrc: string, title: string, caption: string) => void;
@@ -8,20 +8,27 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenImageModal }) => {
   const handlePrimaryCta = () => {
-    trackMetaLead('Hero Primary CTA');
-    window.open(getWhatsAppUrl('Halo kak, saya ingin konsultasi FlowNesia Kas Basic untuk usaha saya'), '_blank', 'noopener,noreferrer');
+    trackMetaContact('Hero Primary CTA');
+    window.open(
+      getWhatsAppUrl(`Halo kak, saya ingin konsultasi FlowNesia Kas Basic (${FLOWNESIA_CONFIG.pricing.mainPrice}) untuk usaha saya`),
+      '_blank',
+      'noopener,noreferrer'
+    );
   };
 
   const scrollToHowItWorks = () => {
     const el = document.getElementById('cara-kerja');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const prefersReduced =
+        typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
     }
   };
 
   return (
     <section className="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24">
-      {/* Subtle background ambient gradients */}
+      {/* Background ambient gradients */}
       <div
         className="pointer-events-none absolute -top-40 right-0 -z-10 h-96 w-96 rounded-full bg-[#D9AE52]/15 blur-3xl"
         aria-hidden="true"
@@ -37,25 +44,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenImageModal }) => {
           {/* Left Column: Value Proposition & CTAs */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             
-            {/* Trust marker: Unboxed, clean metadata discipline */}
-            <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wide text-[#087F5B]">
-              <span className="flex items-center gap-1.5 text-[#063B2D]">
-                <Sparkles className="h-3.5 w-3.5 text-[#D9AE52]" />
-                Automasi Finansial UMKM
+            {/* Trust marker: High-contrast text */}
+            <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold tracking-wide text-[#063B2D]">
+              <span className="flex items-center gap-1.5 text-[#087F5B]">
+                <Sparkles className="h-3.5 w-3.5 text-[#087F5B]" />
+                Otomasi Pembukuan Kas UMKM
               </span>
-              <span aria-hidden="true" className="text-[#D9AE52]">·</span>
-              <span>Sekali Bayar Rp750.000</span>
-              <span aria-hidden="true" className="text-[#D9AE52]">·</span>
-              <span>Didampingi Setup</span>
+              <span aria-hidden="true" className="text-[#063B2D]/40">·</span>
+              <span>Sekali Bayar {FLOWNESIA_CONFIG.pricing.mainPrice}</span>
+              <span aria-hidden="true" className="text-[#063B2D]/40">·</span>
+              <span className="text-[#087F5B]">Setup Sesuai SOP</span>
             </div>
 
-            {/* Headline with Champagne Gold accent */}
+            {/* Headline */}
             <h1 className="text-3xl font-extrabold tracking-tight text-[#063B2D] sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.15] text-balance">
               Catat Keuangan Usaha{' '}
               <span className="relative inline-block text-[#087F5B]">
                 Semudah Kirim Chat
                 <span
-                  className="absolute left-0 -bottom-1.5 h-1 w-full rounded-full bg-[#D9AE52]/70"
+                  className="absolute left-0 -bottom-1 h-1 w-full rounded-full bg-[#D9AE52]/60"
                   aria-hidden="true"
                 />
               </span>{' '}
@@ -75,15 +82,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenImageModal }) => {
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>AI otomatis ekstrak nominal & kategori</span>
+                <span>AI bantu ekstrak nominal & kategori</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>Rekap realtime ke Google Sheets Anda</span>
+                <span>Terekap ke Google Sheets pengguna</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>Dashboard & laba rugi otomatis</span>
+                <span>Dashboard & laba rugi di spreadsheet</span>
               </div>
             </div>
 
@@ -92,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenImageModal }) => {
               <button
                 type="button"
                 onClick={handlePrimaryCta}
-                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-[#063B2D] px-7 py-4 text-base font-bold text-white shadow-lg shadow-[#063B2D]/20 transition-all duration-200 hover:bg-[#087F5B] hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9AE52] cursor-pointer"
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-[#063B2D] px-7 py-4 text-base font-bold text-white shadow-lg shadow-[#063B2D]/20 transition-all duration-200 hover:bg-[#087F5B] hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] cursor-pointer"
               >
                 <MessageCircle className="h-5 w-5 text-[#D9AE52] transition-transform group-hover:rotate-12" />
                 <span>Konsultasi Gratis via WhatsApp</span>
@@ -108,88 +115,95 @@ export const Hero: React.FC<HeroProps> = ({ onOpenImageModal }) => {
               </button>
             </div>
 
-            {/* Trust Footnote */}
-            <div className="mt-6 flex items-center gap-2 text-xs text-[#182820]/60">
-              <ShieldCheck className="h-4 w-4 text-[#087F5B]" />
-              <span>Privasi terjamin. Data spreadsheet 100% tersimpan di akun Google Drive Anda sendiri.</span>
+            {/* Note on separate costs & data storage */}
+            <div className="mt-4 flex flex-col gap-1.5 text-xs text-[#063B2D]">
+              <div className="flex items-center gap-1.5 font-medium">
+                <span className="font-bold text-[#087F5B]">Catatan:</span>
+                <span>{FLOWNESIA_CONFIG.pricing.separateCostNotice}</span>
+              </div>
+              <div className="flex items-center gap-2 text-[#182820]/70">
+                <ShieldCheck className="h-4 w-4 text-[#087F5B] shrink-0" />
+                <span>Hasil pencatatan disimpan langsung ke Google Sheets pada akun Google pengguna.</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Premium Product Showcase Mockup */}
+          {/* Right Column: Product Showcase Mockup */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Back Card: Financial Dashboard Screenshot */}
-              <div
+              {/* Back Card: Financial Dashboard Screenshot (Semantic button) */}
+              <button
+                type="button"
                 onClick={() =>
                   onOpenImageModal(
                     FLOWNESIA_CONFIG.assets.dashboard,
-                    'FlowNesia Dashboard Keuangan',
-                    'Dashboard visual otomatis membaca spreadsheet: grafik pendapatan vs beban, saldo kas berjalan, dan laba rugi.'
+                    'Dashboard Keuangan Visual',
+                    'Tangkapan layar dashboard keuangan: ringkasan pemasukan, beban, dan visualisasi grafik.'
                   )
                 }
-                className="group relative overflow-hidden rounded-2xl border border-[#063B2D]/15 bg-white p-2.5 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-[#D9AE52]/50 cursor-pointer"
-                title="Klik untuk memperbesar tampilan dashboard"
+                className="group relative w-full text-left overflow-hidden rounded-2xl border border-[#063B2D]/15 bg-white p-2.5 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-[#087F5B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] cursor-pointer"
+                aria-label="Perbesar tampilan dashboard keuangan"
               >
                 <div className="flex items-center justify-between px-2 pb-2 text-xs text-[#182820]/70 border-b border-[#063B2D]/10">
                   <div className="flex items-center gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                    <span className="ml-2 font-mono text-[11px] font-medium text-[#063B2D]">Dashboard Keuangan Otomatis</span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden="true" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden="true" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
+                    <span className="ml-2 font-mono text-[11px] font-medium text-[#063B2D]">Dashboard Keuangan</span>
                   </div>
-                  <span className="text-[11px] font-semibold text-[#087F5B] group-hover:underline">Perbesar ↗</span>
+                  <span className="text-[11px] font-bold text-[#087F5B] group-hover:underline">Perbesar ↗</span>
                 </div>
                 <div className="overflow-hidden rounded-xl bg-slate-50 mt-1">
                   <img
                     src={FLOWNESIA_CONFIG.assets.dashboard}
                     alt="Dashboard Keuangan FlowNesia Kas"
-                    className="w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    width={616}
+                    height={505}
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     loading="eager"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-              </div>
+              </button>
 
-              {/* Front Card: Actual WhatsApp Transaction Chat Screenshot (Floating slightly) */}
-              <div
+              {/* Front Card: Actual WhatsApp Transaction Chat Screenshot (Semantic button) */}
+              <button
+                type="button"
                 onClick={() =>
                   onOpenImageModal(
                     FLOWNESIA_CONFIG.assets.waTransaction,
-                    'Pencatatan WhatsApp FlowNesia',
-                    'Ketik transaksi di WhatsApp (contoh: "Beli bahan 150.000"). AI langsung merekap jenis, kategori, nominal, dan link Google Sheets.'
+                    'Pencatatan Transaksi WhatsApp',
+                    'Tangkapan layar WhatsApp: pengguna mengirim "Beli bahan 150.000" dan bot mengonfirmasi rincian transaksi.'
                   )
                 }
-                className="group absolute -bottom-6 -left-3 sm:-left-6 w-[62%] sm:w-[58%] overflow-hidden rounded-2xl border-2 border-[#D9AE52]/60 bg-white p-2 shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-[#D9AE52]/20 cursor-pointer animate-float-gentle"
-                title="Klik untuk memperbesar screenshot WhatsApp"
+                className="group absolute -bottom-6 -left-3 sm:-left-6 w-[62%] sm:w-[58%] text-left overflow-hidden rounded-2xl border-2 border-[#087F5B]/70 bg-white p-2 shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-[#063B2D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] cursor-pointer animate-float-gentle"
+                aria-label="Perbesar tangkapan layar chat WhatsApp"
               >
                 <div className="flex items-center justify-between px-1.5 pb-1.5 text-[10px] text-[#063B2D] border-b border-[#063B2D]/10 font-medium">
-                  <div className="flex items-center gap-1">
-                    <MessageCircle className="h-3 w-3 text-[#087F5B]" />
-                    <span className="font-semibold truncate">Chat WhatsApp Kas</span>
+                  <div className="flex items-center gap-1 min-w-0">
+                    <MessageCircle className="h-3 w-3 text-[#087F5B] shrink-0" />
+                    <span className="font-bold truncate">Chat WhatsApp Kas</span>
                   </div>
-                  <span className="text-[10px] text-[#087F5B] font-bold">Zoom ↗</span>
+                  <span className="text-[10px] text-[#087F5B] font-bold shrink-0">Zoom ↗</span>
                 </div>
                 <div className="overflow-hidden rounded-lg mt-1 bg-slate-100">
                   <img
                     src={FLOWNESIA_CONFIG.assets.waTransaction}
                     alt="Chat WhatsApp FlowNesia Kas"
-                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={720}
+                    height={1056}
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="eager"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-              </div>
+              </button>
 
-              {/* Little Floating Value Tag */}
-              <div className="absolute -top-3 -right-2 sm:-right-4 rounded-xl border border-[#D9AE52]/50 bg-[#063B2D] px-3.5 py-2 text-white shadow-lg">
-                <div className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-[#D9AE52]" />
-                  <div>
-                    <p className="text-[10px] text-white/70">Kecepatan Rekap</p>
-                    <p className="text-xs font-bold text-[#D9AE52]">Otomatis &lt; 3 Detik</p>
-                  </div>
-                </div>
+              {/* Floating Status Tag (Factual statement without unverified claims) */}
+              <div className="absolute -top-3 -right-2 sm:-right-4 rounded-xl border border-[#087F5B]/40 bg-[#063B2D] px-3.5 py-2 text-white shadow-lg pointer-events-none">
+                <p className="text-[10px] text-white/80">Integrasi Data</p>
+                <p className="text-xs font-bold text-white">Google Sheets Terhubung</p>
               </div>
 
             </div>

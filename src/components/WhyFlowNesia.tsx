@@ -5,9 +5,9 @@ import { FLOWNESIA_CONFIG } from '../config/flownesia';
 export const WhyFlowNesia: React.FC = () => {
   const featureIcons = [
     <MessageSquare className="h-6 w-6 text-[#087F5B]" key="wa" />,
-    <Database className="h-6 w-6 text-[#D9AE52]" key="db" />,
+    <Database className="h-6 w-6 text-[#063B2D]" key="db" />,
     <LineChart className="h-6 w-6 text-[#087F5B]" key="chart" />,
-    <Wrench className="h-6 w-6 text-[#D9AE52]" key="wrench" />,
+    <Wrench className="h-6 w-6 text-[#063B2D]" key="wrench" />,
     <ShieldCheck className="h-6 w-6 text-[#087F5B]" key="shield" />,
   ];
 
@@ -17,35 +17,33 @@ export const WhyFlowNesia: React.FC = () => {
         
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#087F5B] mb-3">
-            <CheckCircle className="h-4 w-4 text-[#D9AE52]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#087F5B] mb-3">
+            <CheckCircle className="h-4 w-4 text-[#087F5B]" />
             <span>Kelebihan Utama</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-[#063B2D] sm:text-4xl lg:text-5xl text-balance">
             Kenapa Memilih FlowNesia Kas Basic?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#182820]/75">
-            Dibuat khusus untuk pengusaha praktis yang butuh laporan pembukuan rapi tanpa beban kerja ekstra.
+            Dibuat untuk pemilik usaha yang butuh rekap pembukuan rapi tanpa beban kerja administrasi berlebih.
           </p>
         </div>
 
-        {/* 5 Feature Cards in dynamic bento grid */}
+        {/* 5 Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {FLOWNESIA_CONFIG.whyFlowNesia.map((feature, idx) => {
-            // Give 4th and 5th items slight accent or layout balance
-            const isWide = idx === 3 || idx === 4;
             return (
               <div
                 key={feature.id}
-                className={`group relative rounded-3xl border border-[#063B2D]/10 bg-[#FFF9EB]/40 p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#D9AE52] hover:bg-[#FFF9EB] hover:shadow-lg ${
+                className={`group relative rounded-3xl border border-[#063B2D]/10 bg-[#FFF9EB]/50 p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#087F5B] hover:bg-[#FFF9EB] hover:shadow-md ${
                   idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-[#063B2D]/10 shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:border-[#D9AE52]/40">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-[#063B2D]/10 shadow-xs transition-transform duration-300 group-hover:scale-105 group-hover:border-[#087F5B]/40">
                   {featureIcons[idx]}
                 </div>
 
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#D9AE52] mb-1">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#063B2D] mb-1">
                   <span>FITUR 0{feature.id}</span>
                 </div>
 
@@ -62,8 +60,8 @@ export const WhyFlowNesia: React.FC = () => {
         </div>
 
         {/* Honest Accounting Boundary Note */}
-        <div className="mt-12 rounded-2xl border border-[#063B2D]/10 bg-[#FFF9EB] p-5 text-center max-w-3xl mx-auto text-xs text-[#182820]/70 leading-relaxed">
-          <strong className="text-[#063B2D]">Catatan Integritas:</strong> FlowNesia Kas Basic adalah alat bantu rekap kas operasional harian yang praktis. Sistem ini tidak dimaksudkan untuk menggantikan verifikasi audit akuntansi profesional resmi kantor akuntan publik.
+        <div className="mt-12 rounded-2xl border border-[#063B2D]/10 bg-[#FFF9EB] p-5 text-center max-w-3xl mx-auto text-xs text-[#182820]/75 leading-relaxed">
+          <strong className="text-[#063B2D]">Catatan Batasan:</strong> FlowNesia Kas Basic adalah alat bantu pencatatan transaksi kas operasional harian. Sistem ini tidak menggantikan verifikasi audit akuntansi profesional resmi.
         </div>
 
       </div>

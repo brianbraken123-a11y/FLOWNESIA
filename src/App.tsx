@@ -55,6 +55,8 @@ export default function App() {
     setModalState((prev) => ({ ...prev, isOpen: false }));
   };
 
+  const isAnyModalOpen = modalState.isOpen || legalModal.isOpen;
+
   return (
     <div className="min-h-screen bg-[#FFF9EB] text-[#182820] flex flex-col selection:bg-[#D9AE52]/30 selection:text-[#063B2D]">
       {/* Top Navigation */}
@@ -96,8 +98,8 @@ export default function App() {
         onOpenTermsModal={() => setLegalModal({ isOpen: true, type: 'terms' })}
       />
 
-      {/* Floating & Sticky WhatsApp Conversion CTA */}
-      <FloatingWhatsApp />
+      {/* Floating & Sticky WhatsApp Conversion CTA (Disabled/hidden when modal is open) */}
+      <FloatingWhatsApp isModalOpen={isAnyModalOpen} />
 
       {/* Interactive Lightbox Modal for Screenshots */}
       <ImageModal

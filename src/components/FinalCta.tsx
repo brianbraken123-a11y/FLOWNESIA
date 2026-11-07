@@ -1,12 +1,12 @@
 import React from 'react';
 import { MessageCircle, ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
-import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaLead } from '../config/flownesia';
+import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaContact } from '../config/flownesia';
 
 export const FinalCta: React.FC = () => {
   const handleFinalCta = () => {
-    trackMetaLead('Final CTA WhatsApp');
+    trackMetaContact('Final CTA WhatsApp');
     window.open(
-      getWhatsAppUrl('Halo kak, saya siap menggunakan FlowNesia Kas Basic. Mohon dibantu proses setup usahanya.'),
+      getWhatsAppUrl(`Halo kak, saya siap menggunakan FlowNesia Kas Basic (${FLOWNESIA_CONFIG.pricing.mainPrice}). Mohon dibantu proses setup usahanya.`),
       '_blank',
       'noopener,noreferrer'
     );
@@ -29,7 +29,7 @@ export const FinalCta: React.FC = () => {
         {/* Subtle kicker */}
         <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#D9AE52] mb-6 backdrop-blur-xs">
           <Sparkles className="h-3.5 w-3.5 text-[#D9AE52]" />
-          <span>Siap Otomasi Pembukuan Usaha Anda</span>
+          <span>Otomasi Pembukuan Kas Usaha Anda</span>
         </div>
 
         {/* Headline */}
@@ -39,14 +39,14 @@ export const FinalCta: React.FC = () => {
 
         {/* Supporting Copy */}
         <p className="mt-6 text-base sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-          Tinggalkan cara lama yang membuang waktu. Dapatkan sistem kas berbasis WhatsApp dan Google Sheets Anda hari ini dengan biaya terjangkau.
+          Pencatatan kas via WhatsApp terhubung langsung ke Google Sheets. Sistem siap digunakan untuk mendukung operasional harian usaha Anda.
         </p>
 
         {/* Highlights Row */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-white/90 font-medium">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-[#D9AE52]" />
-            <span>Rp750.000 Sekali Bayar</span>
+            <span>{FLOWNESIA_CONFIG.pricing.mainPrice} Sekali Bayar</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-[#D9AE52]" />
@@ -54,12 +54,12 @@ export const FinalCta: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-[#D9AE52]" />
-            <span>Data 100% Milik Anda</span>
+            <span>Tersimpan di Google Sheets Anda</span>
           </div>
         </div>
 
         {/* Strong WhatsApp CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3">
           <button
             type="button"
             onClick={handleFinalCta}
@@ -69,12 +69,16 @@ export const FinalCta: React.FC = () => {
             <span>Hubungi Kami via WhatsApp</span>
             <ArrowRight className="h-5 w-5 text-[#063B2D] transition-transform group-hover:translate-x-1" />
           </button>
+          
+          <p className="text-xs text-white/80 font-medium">
+            {FLOWNESIA_CONFIG.pricing.separateCostNotice}
+          </p>
         </div>
 
         {/* Assurance */}
         <p className="mt-5 text-xs text-white/60 flex items-center justify-center gap-1.5">
           <ShieldCheck className="h-3.5 w-3.5 text-[#D9AE52]" />
-          <span>Konsultasi awal gratis tanpa kewajiban apa pun. Kami siap menjawab pertanyaan teknis Anda.</span>
+          <span>Konsultasi awal via WhatsApp gratis tanpa kewajiban apa pun.</span>
         </p>
 
       </div>

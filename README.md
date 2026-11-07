@@ -2,80 +2,80 @@
 
 Landing page premium, modern, dan conversion-focused untuk **FlowNesia Kas Basic**: sistem pencatatan keuangan usaha UMKM praktis via WhatsApp terintegrasi Google Sheets dan dashboard keuangan.
 
-## 🌟 Fitur Utama Website
-
-1. **Brand Identity & Desain Premium**:
-   - Palette FinTech Indonesia: *Deep Forest Green* (`#063B2D`), *Emerald Green* (`#087F5B`), *Champagne Gold* (`#D9AE52`), dan *Warm Cream* (`#FFF9EB`).
-   - Tipografi modern: Plus Jakarta Sans & JetBrains Mono untuk tabular data.
-   - Glassmorphism halus, microinteraction, dan layout responsif mobile-first.
-
-2. **Alur Konversi WhatsApp**:
-   - CTA WhatsApp langsung di Hero, Navbar, Showcase Modal, Pricing, FAQ, Final CTA, dan Footer.
-   - **Floating WhatsApp Desktop**: Tombol mengambang di pojok kanan bawah dengan animasi breathing halus.
-   - **Sticky WhatsApp Mobile**: Bar konversi bawah fixed yang menghormati safe-area insets mobile tanpa menutupi konten penting.
-
-3. **10 Bagian Sesuai Spesifikasi**:
-   - **Section 1: Hero** (Value proposition, dual CTA, mockup WhatsApp chat & dashboard)
-   - **Section 2: Problems** (4 kartu interaktif kendala pembukuan UMKM)
-   - **Section 3: Introducing FlowNesia** (Penjelasan integrasi WhatsApp, AI, n8n, & Sheets)
-   - **Section 4: How It Works** (Timeline 4 langkah terhubung dengan screenshot asli)
-   - **Section 5: Product Showcase** (Grid responsive 4 tangkapan layar asli + modal lightbox zoom)
-   - **Section 6: Pricing** (Paket utama Rp750.000 sekali bayar + transparansi biaya operasional server Rp30.000/bln & token AI)
-   - **Section 7: Why FlowNesia?** (5 kartu fitur keunggulan & batasan akuntansi beretika)
-   - **Section 8: FAQ** (Akordeon 8 pertanyaan lengkap)
-   - **Section 9: Final CTA** (Ajakan bertindak langsung ke WhatsApp)
-   - **Section 10: Footer** (Branding, kontak, kebijakan privasi, syarat ketentuan, dan copyright)
+100% kompatibel dengan **Cloudflare Pages** (static site via Vite tanpa ketergantungan server runtime di produksi).
 
 ---
 
-## ⚙️ Cara Mengubah Nomor WhatsApp & Pengaturan
+## 📋 Ringkasan Produk & Biaya
 
-Buka file `src/config/flownesia.ts`:
+- **Nama Produk:** FlowNesia Kas Basic
+- **Harga Sistem & Setup:** **Rp750.000** (pembelian sistem dan setup, sekali bayar).
+- **Biaya Operasional Berjalan (Terpisah):**
+  - **Server Automasi (n8n):** Rp30.000 / bulan (untuk hosting alur otomasi bot 24 jam).
+  - **Token AI:** Sesuai volume pemakaian riil (dibayarkan langsung ke penyedia AI).
+- **Hosting Landing Page:** Di-host secara gratis dan statis melalui Cloudflare Pages (terpisah dari server otomasi n8n).
 
-```typescript
-export const FLOWNESIA_CONFIG = {
-  contact: {
-    whatsappNumber: '6281234567890', // Masukkan nomor WhatsApp bisnis Anda di sini (format 628xxxxxxxxxx)
-    whatsappDisplay: '+62 812-3456-7890',
-    email: 'kontak@flownesia.com',
-  },
-  // ...
-};
-```
-Semua tombol CTA dan tautan konsultasi akan secara otomatis mengarah ke nomor WhatsApp yang telah Anda tentukan.
+---
+
+## 📞 Kontak WhatsApp Resmi
+
+Dikonfigurasi di `src/config/flownesia.ts`:
+- **Nomor WhatsApp:** `6282191897020` (`0821-9189-7020`)
+- **Fungsi WhatsApp URL:** Semua tombol CTA di halaman menggunakan fungsi terpusat `getWhatsAppUrl()`.
+
+---
+
+## 🔒 Privasi Data & Penyamaran Aset
+
+1. **Penyamaran Aset Publik:** Seluruh identitas pribadi dan alamat tautan spreadsheet privat pada tangkapan layar telah disamarkan (*anonymized/blurred*) pada direktori `public/assets/` dan `public/assets/aistudio/` tanpa mengubah angka atau bukti alur transaksi.
+2. **Catatan Konsistensi Screenshot:** Tangkapan layar dashboard dan laporan laba rugi saat ini menampilkan contoh antarmuka dengan angka laba/rugi yang berbeda (Rp36.444 vs Rp116.444). Sesuai standar integritas, angka dalam gambar asli tidak direkayasa. Pemilik sistem disarankan menyediakan tangkapan layar pengganti yang konsisten pada periode yang sama.
+
+---
+
+## 🌐 Metadata Sosial & OpenGraph
+
+Pada file `index.html`, tag `og:image` dan `twitter:image` menggunakan path root-relative `/assets/logo.jpg`. Setelah domain kustom Anda dihubungkan ke Cloudflare Pages, perbarui URL tersebut menjadi URL absolut (contoh: `https://domainanda.com/assets/logo.jpg`) untuk pratinjau optimal pada Facebook/Instagram Ads.
+
+---
+
+## ⚙️ Persyaratan Sistem & Dependensi
+
+- **Node.js:** `>= 22.12.0` (diuji pada Node v22.23.2)
+- **Package Manager:** `npm` (dilengkapi `package-lock.json`)
+- **Framework:** React 19 + Vite 8
+- **Styling & Icons:** Tailwind CSS v4 + Lucide React
 
 ---
 
 ## 🚀 Panduan Deployment ke Cloudflare Pages
 
-Project ini 100% kompatibel dengan **Cloudflare Pages** (Static Site Generator via Vite):
-
-### Langkah-langkah:
 1. Hubungkan repository GitHub Anda ke Cloudflare Dashboard.
-2. Buat project baru di **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-3. Pilih repository project ini.
-4. Pada bagian **Build settings**:
-   - **Framework preset**: `Vite` (atau `None`)
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-   - **Node.js version**: `18` atau `20`
-5. Klik **Save and Deploy**.
-6. Website FlowNesia Kas Basic akan langsung aktif secara global melalui jaringan CDN Cloudflare berkecepatan tinggi!
+2. Masuk ke menu **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
+3. Pilih repository ini.
+4. Konfigurasi build:
+   - **Framework preset:** `Vite` (atau `None`)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Environment variables:** `NODE_VERSION = 22`
+5. Klik **Save and Deploy**. Website akan otomatis ter-build dan aktif secara global.
 
 ---
 
-## 🛠️ Pengembangan Lokal
+## 🛠️ Perintah Lokal
 
 ```bash
-# Install dependencies
+# Instalasi dependensi
 npm install
 
-# Jalankan server development
+# Pemeriksaan tipe TypeScript (Lint)
+npm run lint
+
+# Menjalankan server development lokal
 npm run dev
 
-# Jalankan uji build produksi
+# Membangun file produksi statis
 npm run build
 
-# Preview build produksi secara lokal
+# Menjalankan preview build produksi
 npm run preview
 ```

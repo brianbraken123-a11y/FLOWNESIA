@@ -1,8 +1,8 @@
 /**
  * FlowNesia Kas Basic - Centralized Configuration
  * 
- * You can easily customize the WhatsApp phone number and default messages here.
- * Format for Indonesian numbers: 628xxxxxxxxxx (without '+' or leading '0').
+ * Central configuration for brand identity, verified WhatsApp contacts,
+ * centralized pricing, feature lists, and disclaimers.
  */
 
 export const FLOWNESIA_CONFIG = {
@@ -14,12 +14,10 @@ export const FLOWNESIA_CONFIG = {
       'FlowNesia Kas Basic membantu mencatat pemasukan dan pengeluaran melalui WhatsApp, merekap transaksi ke Google Sheets, dan memantau laporan keuangan usaha dengan lebih praktis.',
   },
 
-  // Edit this phone number with your actual WhatsApp business number
+  // Verified WhatsApp Business Contact
   contact: {
-    whatsappNumber: '6281234567890', // Ubah nomor WhatsApp Anda di sini
-    whatsappDisplay: '+62 812-3456-7890',
-    email: 'kontak@flownesia.com',
-    operationalHours: 'Senin - Sabtu: 09:00 - 18:00 WIB',
+    whatsappNumber: '6282191897020',
+    whatsappDisplay: '0821-9189-7020',
   },
 
   pricing: {
@@ -27,16 +25,21 @@ export const FLOWNESIA_CONFIG = {
     mainPriceNumeric: 750000,
     type: 'Sekali bayar',
     subtitle: 'Pembelian sistem dan setup, sekali bayar.',
+    separateCostNotice: 'Biaya server dan token AI terpisah.',
+    hostingDistinction:
+      'Biaya server otomasi produk (n8n) terpisah dari hosting landing page di Cloudflare Pages (hosting web statis).',
     operationalCosts: [
       {
-        item: 'Biaya Server Cloud / n8n',
+        item: 'Biaya Server Automasi (n8n)',
         cost: 'Rp30.000 / bulan',
-        description: 'Untuk hosting server automasi yang aktif 24 jam memproses pesan WhatsApp Anda.',
+        description:
+          'Biaya operasional server cloud untuk menjalankan alur otomasi n8n yang aktif 24 jam memproses pesan WhatsApp Anda.',
       },
       {
         item: 'Biaya Token AI',
         cost: 'Sesuai pemakaian',
-        description: 'Biaya API AI langsung sesuai volume transaksi Anda (sangat terjangkau, rata-rata Rp5 - Rp20 per transaksi).',
+        description:
+          'Biaya API langsung ke penyedia AI sesuai volume transaksi yang dikirimkan melalui WhatsApp.',
       },
     ],
     features: [
@@ -52,7 +55,7 @@ export const FLOWNESIA_CONFIG = {
     ],
   },
 
-  // Official uploaded screenshots & logo
+  // Official uploaded screenshots & logo (with privacy anonymization applied)
   assets: {
     logo: '/assets/logo.jpg',
     waTransaction: '/assets/wa-transaction.jpg',
@@ -65,26 +68,22 @@ export const FLOWNESIA_CONFIG = {
     {
       id: 1,
       title: 'Transaksi sering lupa dicatat',
-      desc: 'Sibuk melayani pembeli membuat pengeluaran kecil seperti beli bensin, makan siang, atau bayar kurir sering terlewat dan uang kas tiba-tiba berkurang tanpa jejak.',
-      highlight: 'Sering lupa catat',
+      desc: 'Kesibukan operasional membuat pengeluaran harian seperti beli bensin, makan siang, atau kurir sering terlewat dan uang kas berkurang tanpa catatan.',
     },
     {
       id: 2,
       title: 'Catatan keuangan tersebar',
-      desc: 'Sebagian nota terselip di laci, sebagian diketik di memo HP, dan sebagian lagi hanya diingat di kepala. Akibatnya data berantakan dan sulit dicocokkan.',
-      highlight: 'Data tercecer',
+      desc: 'Sebagian nota tersimpan di laci, sebagian dicatat di aplikasi memo, dan sebagian hanya diingat di kepala, sehingga data sulit direkonsiliasi.',
     },
     {
       id: 3,
       title: 'Rekap manual memakan waktu',
-      desc: 'Setiap akhir bulan harus lembur berjam-jam membuka bon kertas dan mengetik ulang satu per satu ke buku kas atau laptop sampai pusing.',
-      highlight: 'Lembur rekap bon',
+      desc: 'Akhir bulan dihabiskan untuk memeriksa tumpukan nota fisik dan mengetik ulang satu per satu ke lembar spreadsheet.',
     },
     {
       id: 4,
       title: 'Sulit memantau kondisi keuangan',
-      desc: 'Omzet penjualan terasa ramai dan barang laris, namun tidak tahu pasti berapa laba bersih riil yang didapatkan setiap bulannya.',
-      highlight: 'Laba bersih buram',
+      desc: 'Transaksi harian terasa berjalan, namun pemilik usaha belum dapat melihat angka laba/rugi bersih secara cepat dan teratur.',
     },
   ],
 
@@ -93,22 +92,22 @@ export const FLOWNESIA_CONFIG = {
       id: 1,
       title: 'Praktis melalui WhatsApp',
       description:
-        'Cukup kirim pesan singkat seperti "Beli bahan 150.000" atau "Jual 3 paket katering 450.000" langsung di WhatsApp Anda tanpa perlu download aplikasi kasir baru yang rumit.',
-      badge: 'Tanpa Install App Tambahan',
+        'Cukup kirim pesan singkat seperti "Beli bahan 150.000" langsung di WhatsApp tanpa perlu memasang aplikasi kasir tambahan.',
+      badge: 'Tanpa Pasang Aplikasi Kasir Baru',
     },
     {
       id: 2,
       title: 'Data Lebih Terstruktur',
       description:
-        'AI cerdas mengenali nominal, jenis transaksi (masuk/keluar), kategori akun, dan tanggal secara otomatis, lalu merapikannya langsung ke baris Google Sheets Anda.',
-      badge: 'Auto Klasifikasi AI',
+        'AI membantu mengekstrak tanggal, nominal, jenis transaksi, dan kategori, lalu alur otomasi n8n merekapnya ke Google Sheets.',
+      badge: 'Bantuan AI & Otomasi',
     },
     {
       id: 3,
       title: 'Laporan Lebih Mudah Dipantau',
       description:
-        'Dilengkapi dashboard visual interaktif serta laporan laba rugi bulanan di spreadsheet Anda yang bisa diakses kapan saja dari smartphone maupun laptop.',
-      badge: 'Real-time Spreadsheet',
+        'Dilengkapi dashboard visual dan lembar laporan laba rugi di Google Sheets pengguna yang dapat diakses dari smartphone maupun laptop.',
+      badge: 'Tersimpan di Google Sheets Pengguna',
     },
   ],
 
@@ -118,36 +117,36 @@ export const FLOWNESIA_CONFIG = {
       number: '01',
       title: 'Kirim Transaksi Melalui WhatsApp',
       description:
-        'Ketik pesan pengeluaran atau pemasukan dengan bahasa santai sehari-hari di chat WhatsApp bot kas Anda (contoh: "Beli bahan 150.000").',
-      assetKey: 'waTransaction',
-      caption: 'Tangkapan layar asli pesan chat WhatsApp konfirmasi transaksi kas keluar Rp150.000.',
+        'Ketik pesan pemasukan atau pengeluaran ke chat WhatsApp bot kas usaha Anda (contoh: "Beli bahan 150.000").',
+      image: '/assets/wa-transaction.jpg',
+      caption: 'Tangkapan layar WhatsApp: pengguna mengirim "Beli bahan 150.000" dan bot memberikan rincian transaksi.',
     },
     {
       step: 2,
       number: '02',
       title: 'AI Membantu Memproses Informasi Transaksi',
       description:
-        'Sistem AI otomatis membaca pesan, mengekstrak tanggal, nominal uang, jenis transaksi (Masuk / Keluar), serta mengkategorikannya ke pos akun yang tepat.',
-      assetKey: 'waTransaction',
-      caption: 'AI mengekstrak nominal Rp150.000, jenis: Keluar, kategori: Belanja, keterangan: Beli bahan.',
+        'AI membaca pesan dan menguraikan tanggal, nominal (Rp150.000), jenis (Keluar), serta kategori (Belanja).',
+      image: '/assets/wa-transaction.jpg',
+      caption: 'Respon otomatis: AI mengekstrak nominal, kategori, jenis transaksi, dan link Google Sheets.',
     },
     {
       step: 3,
       number: '03',
       title: 'Data Direkap ke Google Sheets',
       description:
-        'Detik itu juga, data transaksi tercatat rapi ke tabel Google Sheets Anda lengkap dengan ID unik, tanggal, kategori, saldo kas terupdate, dan status berhasil.',
-      assetKey: 'googleSheets',
-      caption: 'Tangkapan layar asli baris data Google Sheets transaksi kas terstruktur.',
+        'Data diteruskan oleh server otomasi ke baris baru tabel Google Sheets pengguna secara berurutan.',
+      image: '/assets/google-sheets.jpg',
+      caption: 'Tangkapan layar Google Sheets: ID transaksi, Tanggal, Kategori, Masuk/Keluar, Saldo Kas, dan Status.',
     },
     {
       step: 4,
       number: '04',
       title: 'Pantau Dashboard dan Laporan',
       description:
-        'Buka spreadsheet kapan saja untuk memantau grafik pemasukan vs beban, diagram kategori pengeluaran, serta laporan laba rugi bersih secara real-time.',
-      assetKey: 'dashboard',
-      caption: 'Dashboard visual keuangan bulanan dengan indikator total pemasukan, beban, dan laba/rugi.',
+        'Buka spreadsheet kapan saja untuk memantau ringkasan pendapatan, beban, dan laporan laba rugi usaha Anda.',
+      image: '/assets/dashboard.jpg',
+      caption: 'Tangkapan layar dashboard keuangan: ringkasan pemasukan, beban, dan visualisasi grafik.',
     },
   ],
 
@@ -155,42 +154,50 @@ export const FLOWNESIA_CONFIG = {
     {
       id: 'wa-chat',
       title: 'Pencatatan Transaksi WhatsApp',
-      tag: 'Input Praktis',
+      tag: 'Tangkapan Layar WhatsApp',
       description:
-        'Bukti nyata respon otomatis saat mencatat pengeluaran "Beli bahan 150.000". AI langsung membalas rincian tanggal, jenis, kategori, nominal, dan link menuju Google Sheets.',
+        'Contoh respon bot WhatsApp saat mencatat pengeluaran. Menampilkan tanggal, jenis transaksi, kategori belanja, nominal Rp150.000, serta tautan menuju Google Sheets.',
       image: '/assets/wa-transaction.jpg',
-      aspect: 'aspect-[9/16] max-h-[460px]',
-      badge: 'WhatsApp Interface',
+      badge: 'Input Transaksi WhatsApp',
+      width: 720,
+      height: 1056,
+      aspectClass: 'aspect-[720/1056]',
     },
     {
       id: 'google-sheets',
       title: 'Database Transaksi Google Sheets',
-      tag: 'Rekap Terpusat',
+      tag: 'Tangkapan Layar Spreadsheet',
       description:
-        'Tabel spreadsheet yang otomatis terisi setiap ada pesan masuk. Mencakup ID unik, Tanggal, Kategori, Masuk, Keluar, Saldo Kas akumulatif, Keterangan, Status, dan Created At.',
+        'Tabel spreadsheet yang memuat baris transaksi kas: ID, Tanggal, Kategori, Masuk, Keluar, Saldo Kas berjalan, Keterangan, Status, dan Created At.',
       image: '/assets/google-sheets.jpg',
-      aspect: 'aspect-[16/7]',
-      badge: 'Spreadsheet Cloud',
+      badge: 'Database Kas Google Sheets',
+      width: 1027,
+      height: 207,
+      aspectClass: 'aspect-[1027/207]',
     },
     {
       id: 'dashboard',
       title: 'Dashboard Keuangan Visual',
-      tag: 'Ringkasan Eksekutif',
+      tag: 'Tangkapan Layar Dashboard',
       description:
-        'Visualisasi grafik batang pendapatan vs beban per bulan, grafik tren pengeluaran, donat komposisi beban per kategori, serta ringkasan total pemasukan dan saldo kas akhir.',
+        'Visualisasi lembar dashboard keuangan contoh: indikator Total Pemasukan, Total Beban, Laba/Rugi, Saldo Kas, serta grafik per bulan dan per kategori.',
       image: '/assets/dashboard.jpg',
-      aspect: 'aspect-[16/10]',
-      badge: 'Grafik Interaktif',
+      badge: 'Dashboard Visual',
+      width: 616,
+      height: 505,
+      aspectClass: 'aspect-[616/505]',
     },
     {
       id: 'laba-rugi',
-      title: 'Laporan Laba Rugi Otomatis',
-      tag: 'Laporan Bulanan',
+      title: 'Laporan Laba Rugi',
+      tag: 'Tangkapan Layar Laporan',
       description:
-        'Rincian seluruh pos pendapatan (gaji, bonus, penjualan) dikurangi pos beban (belanja, konsumsi, transportasi, operasional) hingga menghasilkan angka Laba/Rugi Bersih yang transparan.',
+        'Contoh lembar laporan laba rugi dengan rincian pos pendapatan dan kelompok beban hingga baris laba/rugi bersih periode berjalan.',
       image: '/assets/laba-rugi.jpg',
-      aspect: 'aspect-[3/4] max-h-[480px]',
-      badge: 'Laba Rugi Bulanan',
+      badge: 'Laporan Laba Rugi',
+      width: 295,
+      height: 460,
+      aspectClass: 'aspect-[295/460]',
     },
   ],
 
@@ -198,27 +205,27 @@ export const FLOWNESIA_CONFIG = {
     {
       id: 1,
       title: 'Input Transaksi Lewat WhatsApp',
-      desc: 'Gunakan aplikasi yang sudah Anda buka puluhan kali setiap hari. Tak perlu registrasi akun baru atau membuka software berat saat sedang sibuk melayani pembeli.',
+      desc: 'Mencatat arus kas langsung dari aplikasi WhatsApp yang sudah terbiasa digunakan sehari-hari tanpa aplikasi kasir terpisah.',
     },
     {
       id: 2,
       title: 'Rekap Data Terpusat',
-      desc: 'Semua pencatatan tersimpan aman di Google Drive / Google Sheets milik Anda sendiri. Data adalah 100% milik Anda dan tidak terkunci di vendor tertutup.',
+      desc: 'Seluruh hasil pencatatan tersimpan di Google Sheets pada akun Google milik pengguna sendiri.',
     },
     {
       id: 3,
-      title: 'Dashboard Keuangan Otomatis',
-      desc: 'Dilengkapi visualisasi grafik dan formula laba rugi bawaan yang otomatis menghitung saldo akhir tanpa perlu Anda menulis rumus Excel manual.',
+      title: 'Dashboard Keuangan',
+      desc: 'Dilengkapi lembar dashboard visual dan formula otomatis untuk memantau ringkasan kas tanpa perlu menyusun rumus manual.',
     },
     {
       id: 4,
       title: 'Setup Sistem Sesuai SOP',
-      desc: 'Kami bantu setup workflow otomasi, integrasi akun, hingga pengujian sampai sistem dipastikan berjalan lancar dan siap Anda gunakan.',
+      desc: 'Pendampingan setup otomasi n8n, konfigurasi akun, dan pengujian alur pencatatan hingga siap dioperasikan.',
     },
     {
       id: 5,
-      title: 'Transparansi Biaya Mutlak',
-      desc: 'Harga sistem sekali bayar Rp750.000. Biaya server dan pemakaian token AI dijelaskan secara jujur dan transparan tanpa biaya tersembunyi.',
+      title: 'Transparansi Biaya',
+      desc: 'Biaya pembelian sistem Rp750.000 sekali bayar, dengan rincian biaya operasional server dan token AI yang disampaikan secara terbuka.',
     },
   ],
 
@@ -226,63 +233,63 @@ export const FLOWNESIA_CONFIG = {
     {
       question: 'Apa itu FlowNesia?',
       answer:
-        'FlowNesia Kas Basic adalah sistem pembukuan usaha praktis berbasis automasi yang menghubungkan WhatsApp, AI (Artificial Intelligence), workflow n8n, dan Google Sheets. Anda cukup mengirim pesan transaksi lewat WhatsApp, dan sistem akan langsung merekapnya ke database spreadsheet beserta dashboard laporan keuangan.',
+        'FlowNesia Kas Basic adalah sistem pembukuan usaha yang mengintegrasikan WhatsApp, kecerdasan buatan (AI), alur kerja otomasi n8n, dan Google Sheets. Anda mencatat transaksi lewat WhatsApp, lalu sistem menguraikan dan mencatatnya ke Google Sheets Anda.',
     },
     {
       question: 'Berapa harganya?',
       answer:
-        'Harga FlowNesia Kas Basic adalah Rp750.000 (sekali bayar). Biaya ini mencakup lisensi sistem, workflow otomasi n8n, prompt AI khusus pencatatan kas, template Google Sheets interaktif, serta panduan setup dan pengujian sistem sesuai SOP hingga siap digunakan.',
+        'Harga FlowNesia Kas Basic adalah Rp750.000 (sekali bayar). Biaya ini mencakup pembelian sistem, alur otomasi n8n, prompt AI pencatatan kas, template Google Sheets, serta pendampingan setup dan pengujian sesuai SOP.',
     },
     {
       question: 'Apakah ada biaya bulanan?',
       answer:
-        'Ya, terdapat biaya operasional server terpisah sebesar Rp30.000/bulan untuk menjaga server automasi (n8n) tetap aktif dan online 24 jam memproses pesan WhatsApp Anda. Biaya ini dibayarkan langsung untuk operasional cloud server Anda.',
+        'Ya, terdapat biaya operasional server terpisah sebesar Rp30.000/bulan untuk menjalankan server otomasi (n8n) yang aktif 24 jam memproses pesan WhatsApp Anda. Biaya ini terpisah dari harga pembelian sistem dan tidak mencakup hosting landing page yang berjalan di Cloudflare Pages.',
     },
     {
       question: 'Apakah token AI sudah termasuk?',
       answer:
-        'Token AI dibayarkan terpisah sesuai pemakaian langsung ke penyedia AI. Biaya ini sangat terjangkau, rata-rata hanya beberapa rupiah (sekitar Rp5 - Rp20) per transaksi yang dicatat, sehingga sangat hemat untuk penggunaan harian UMKM.',
+        'Token AI dibayarkan terpisah sesuai pemakaian langsung ke penyedia AI sesuai volume transaksi yang Anda kirimkan ke bot.',
     },
     {
       question: 'Apakah dibantu saat pemasangan?',
       answer:
-        'Tentu saja! Kami memberikan pendampingan setup dan pengujian sistem sesuai SOP standar FlowNesia. Tim kami akan memastikan integrasi antara WhatsApp bot, server automasi, dan Google Sheets Anda terhubung dengan sempurna dan siap dipakai.',
+        'Ya, kami menyediakan pendampingan setup dan pengujian sistem sesuai SOP standar FlowNesia hingga WhatsApp bot, server otomasi, dan Google Sheets Anda terhubung dan teruji.',
     },
     {
       question: 'Bagaimana cara mencatat transaksi?',
       answer:
-        'Sangat mudah. Anda hanya perlu membuka chat WhatsApp bot kas Anda, lalu ketik transaksi dalam kalimat santai, misalnya: "Beli bahan 150.000", "Beli bensin 30.000", atau "Masuk penjualan tunai 500.000". AI akan otomatis memproses dan memberikan balasan konfirmasi.',
+        'Anda membuka ruang obrolan WhatsApp bot kas usaha Anda, lalu mengetikkan transaksi (contoh: "Beli bahan 150.000"). AI menguraikan data tersebut dan sistem mengirimkannya ke Google Sheets.',
     },
     {
       question: 'Apakah tersedia laporan keuangan?',
       answer:
-        'Ya, template Google Sheets FlowNesia sudah dilengkapi dengan lembar Laporan Keuangan Dasar, ringkasan saldo kas berjalan, grafik dashboard pendapatan vs beban bulanan, serta lembar Laporan Laba Rugi otomatis.',
+        'Ya, template Google Sheets FlowNesia dilengkapi lembar rekap transaksi, saldo kas berjalan, dashboard visual, dan lembar laporan laba rugi dasar.',
     },
     {
       question: 'Apakah harus memahami akuntansi?',
       answer:
-        'Tidak perlu! FlowNesia dirancang khusus agar pemilik usaha, pedagang, dan tim operasional yang tidak memiliki latar belakang akuntansi tetap bisa mencatat arus kas dengan rapi, akurat, dan mudah dimengerti.',
+        'Tidak. Sistem dirancang agar pemilik usaha dan staf dapat mencatat arus kas masuk dan keluar secara praktis tanpa memerlukan keahlian akuntansi khusus.',
     },
   ],
 };
 
 /**
- * Builds the pre-filled WhatsApp URL with user tracking
+ * Builds the pre-filled WhatsApp URL
  */
 export function getWhatsAppUrl(customMessage?: string): string {
   const number = FLOWNESIA_CONFIG.contact.whatsappNumber;
-  const defaultText = 'Halo kak, saya tertarik dengan FlowNesia Kas Basic';
+  const defaultText = `Halo kak, saya tertarik dengan FlowNesia Kas Basic (${FLOWNESIA_CONFIG.pricing.mainPrice})`;
   const text = encodeURIComponent(customMessage || defaultText);
   return `https://wa.me/${number}?text=${text}`;
 }
 
 /**
- * Helper to trigger Meta Pixel event safely if loaded
+ * Helper to record WhatsApp click event if Meta Pixel is active
+ * Only records 'Contact' event per guidelines.
  */
-export function trackMetaLead(label = 'WhatsApp Lead'): void {
+export function trackMetaContact(label = 'WhatsApp Contact'): void {
   try {
     if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead', { content_name: label });
       (window as any).fbq('track', 'Contact', { content_name: label });
     }
   } catch (err) {

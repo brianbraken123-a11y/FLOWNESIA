@@ -1,18 +1,13 @@
 import React from 'react';
-import { Sparkles, MessageSquareText, Database, BarChart3, ArrowRight } from 'lucide-react';
-import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaLead } from '../config/flownesia';
+import { Sparkles, MessageSquareText, Database, BarChart3 } from 'lucide-react';
+import { FLOWNESIA_CONFIG } from '../config/flownesia';
 
 export const Introducing: React.FC = () => {
   const benefitIcons = [
     <MessageSquareText className="h-6 w-6 text-[#087F5B]" key="wa" />,
-    <Database className="h-6 w-6 text-[#D9AE52]" key="db" />,
+    <Database className="h-6 w-6 text-[#063B2D]" key="db" />,
     <BarChart3 className="h-6 w-6 text-[#087F5B]" key="chart" />,
   ];
-
-  const handleCta = () => {
-    trackMetaLead('Introducing Section CTA');
-    window.open(getWhatsAppUrl('Halo kak, saya ingin tanya bagaimana FlowNesia Kas Basic bisa diterapkan di toko saya'), '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <section id="tentang" className="relative py-16 sm:py-24 overflow-hidden">
@@ -22,8 +17,8 @@ export const Introducing: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#087F5B] mb-3">
-              <Sparkles className="h-4 w-4 text-[#D9AE52]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#087F5B] mb-3">
+              <Sparkles className="h-4 w-4 text-[#087F5B]" />
               <span>Solusi Finansial Praktis & Modern</span>
             </div>
             
@@ -32,27 +27,27 @@ export const Introducing: React.FC = () => {
             </h2>
 
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-[#182820]/85">
-              FlowNesia Kas Basic hadir sebagai jembatan cerdas yang menggabungkan kenyamanan <strong>WhatsApp</strong>, kecerdasan <strong>AI Transaction Processing</strong>, otomatisasi alur kerja (workflow), dan kestabilan <strong>Google Sheets</strong>.
+              FlowNesia Kas Basic menghubungkan kenyamanan antarmuka <strong>WhatsApp</strong>, pemrosesan transaksi berbantuan <strong>AI</strong>, otomasi alur kerja server <strong>n8n</strong>, dan keandalan <strong>Google Sheets</strong>.
             </p>
 
             <p className="mt-3 text-base sm:text-lg leading-relaxed text-[#182820]/85">
-              Anda tidak perlu mengubah kebiasaan lama atau memaksa karyawan menghafal sistem rumit. Cukup ketik seperti sedang berkirim pesan ke teman, dan seluruh pembukuan tercatat rapi secara otomatis.
+              Anda tidak perlu mengubah alur kerja atau meminta staf menghafal aplikasi kasir baru yang rumit. Cukup kirim pesan teks seperti biasa, dan data direkap ke lembar spreadsheet usaha Anda.
             </p>
 
             <div className="mt-6 flex items-center gap-6 text-sm text-[#063B2D] font-medium border-t border-[#063B2D]/10 pt-4">
               <div>
                 <span className="block text-2xl font-extrabold text-[#087F5B]">100%</span>
-                <span className="text-xs text-[#182820]/70">Data di Akun Anda</span>
+                <span className="text-xs text-[#182820]/75">Data di Akun Anda</span>
               </div>
-              <div className="h-8 w-px bg-[#063B2D]/15" />
+              <div className="h-8 w-px bg-[#063B2D]/15" aria-hidden="true" />
               <div>
-                <span className="block text-2xl font-extrabold text-[#D9AE52]">0</span>
-                <span className="text-xs text-[#182820]/70">Rumus Excel Manual</span>
+                <span className="block text-2xl font-extrabold text-[#063B2D]">0</span>
+                <span className="text-xs text-[#182820]/75">Rumus Manual</span>
               </div>
-              <div className="h-8 w-px bg-[#063B2D]/15" />
+              <div className="h-8 w-px bg-[#063B2D]/15" aria-hidden="true" />
               <div>
-                <span className="block text-2xl font-extrabold text-[#063B2D]">24/7</span>
-                <span className="text-xs text-[#182820]/70">Server Automasi Siap</span>
+                <span className="block text-2xl font-extrabold text-[#087F5B]">24 Jam</span>
+                <span className="text-xs text-[#182820]/75">Server Otomasi Aktif</span>
               </div>
             </div>
           </div>
@@ -62,15 +57,15 @@ export const Introducing: React.FC = () => {
             {FLOWNESIA_CONFIG.benefits.map((benefit, idx) => (
               <div
                 key={benefit.id}
-                className="group relative rounded-2xl border border-[#063B2D]/10 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:border-[#D9AE52] hover:shadow-md hover:bg-white"
+                className="group relative rounded-2xl border border-[#063B2D]/10 bg-white/90 p-6 shadow-xs transition-all duration-300 hover:border-[#087F5B] hover:shadow-md hover:bg-white"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF9EB] border border-[#D9AE52]/30 transition-transform group-hover:scale-105">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF9EB] border border-[#087F5B]/20 transition-transform group-hover:scale-105">
                     {benefitIcons[idx]}
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-semibold text-[#087F5B] uppercase tracking-wider">
+                      <span className="text-xs font-bold text-[#087F5B] uppercase tracking-wider">
                         {benefit.badge}
                       </span>
                     </div>
