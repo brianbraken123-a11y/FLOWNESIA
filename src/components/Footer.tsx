@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Phone, ArrowUp, Shield } from 'lucide-react';
+import { MessageCircle, ArrowUp, Shield } from 'lucide-react';
 import { FLOWNESIA_CONFIG, getWhatsAppUrl, trackMetaContact } from '../config/flownesia';
 
 interface FooterProps {
@@ -106,14 +106,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
                 <MessageCircle className="h-4 w-4 text-[#087F5B] shrink-0" />
                 <span>WhatsApp: {FLOWNESIA_CONFIG.contact.whatsappDisplay}</span>
               </button>
-
-              <a
-                href={FLOWNESIA_CONFIG.contact.phoneUrl}
-                className="flex items-center gap-2.5 hover:text-white transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087F5B] rounded p-1 -ml-1 cursor-pointer"
-              >
-                <Phone className="h-4 w-4 text-[#087F5B] shrink-0" />
-                <span>Telepon: {FLOWNESIA_CONFIG.contact.whatsappDisplay}</span>
-              </a>
             </div>
 
             <div className="mt-6 flex items-center gap-4 text-xs text-white/60">
